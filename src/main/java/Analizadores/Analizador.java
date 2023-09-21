@@ -30,20 +30,24 @@ public class Analizador {
             if (verificarFormato()) {
                 File archivo = new File(this.ruta);
 
-                BufferedReader lector = new BufferedReader(new FileReader(archivo));
-                BufferedWriter traductor = new BufferedWriter(new FileWriter("C:/Users/jeison Franco/IdeaProjects/Tarea3_JeisonSFrancoC/src/software1_pruebas/estudiantes.json"));
+                if(archivo != null){
+                    BufferedReader lector = new BufferedReader(new FileReader(archivo));
+                    BufferedWriter traductor = new BufferedWriter(new FileWriter("C:/Users/jeison Franco/IdeaProjects/Tarea3_JeisonSFrancoC/src/software1_pruebas/estudiantes.json"));
 
-                String linea;
-                while ((linea = lector.readLine()) != null) {
-                    String[] datos = linea.split(",");
-                    String formatoJSON = "{\"id\":\"" + datos[0] + "\",\"nombre\":\"" + datos[1] + "\",\"apellido\":\"" + datos[2] + "\"}";
-                    this.estudiantes.add(formatoJSON);
+                    String linea;
+                    while ((linea = lector.readLine()) != null) {
+                        String[] datos = linea.split(",");
+                        String formatoJSON = "{\"id\":\"" + datos[0] + "\",\"nombre\":\"" + datos[1] + "\",\"apellido\":\"" + datos[2] + "\"}";
+                        this.estudiantes.add(formatoJSON);
+                    }
+                    traductor.write(String.valueOf(this.estudiantes));
+                    traductor.newLine();
+
+                    lector.close();
+                    traductor.close();
+                } else{
+                    System.out.println("archivo no encontrado");
                 }
-                traductor.write(String.valueOf(this.estudiantes));
-                traductor.newLine();
-
-                lector.close();
-                traductor.close();
             } else {
                 System.out.println("No es un formato soportado");
             }
