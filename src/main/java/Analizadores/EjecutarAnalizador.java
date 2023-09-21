@@ -20,7 +20,7 @@ public class EjecutarAnalizador {
         //String rutaPruebas = "C:/Users/jeison Franco/IdeaProjects/Tarea3_JeisonSFrancoC/src/software1_pruebas/estudiantes.csv";
 
         //ejecucion de metodo conversor de la clase analizador del respectivo objeto que construimos con el dato del usuario
-        analizador.conversor();
+        analizador.refactorizador();
         //salida para comprobar la estructura de los estudiantes en json
         System.out.println(analizador.getEstudiantes());
 

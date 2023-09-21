@@ -25,7 +25,7 @@ public class Analizador {
     //metodo que invoca la verificacion del formato como medida inicial,
     //ademas de leer un archivo,formar la estructura de json para los datos de los estudiantes y guardarlos en una lista
     //escribe en el nuevo archivo.json la lista donde guardamos los datos de dicho formato
-    public void conversor() {
+    public void refactorizador() {
         try {
             if (verificarFormato()) {
                 File archivo = new File(this.ruta);
